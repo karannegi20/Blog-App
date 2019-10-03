@@ -1,0 +1,28 @@
+<% include partials/header.ejs %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.name %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>">
+            <div class="content">
+                <span ><%= blog.created.toDateString() %></span>
+            </div>
+            <div class="description">
+                <p><%- blog.body %></p>
+            </div>
+            <a class="ui mini violet basic button" href="/blogs/<%= blog._id %>/edit">
+                <i class="pencil alternate icon"></i>
+                Edit
+            </a>
+            <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui red mini labeled icon button">
+                    <i class="trash icon"></i>
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer.ejs %>
